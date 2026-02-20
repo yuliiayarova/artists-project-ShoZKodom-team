@@ -6,6 +6,7 @@ axios.defaults.baseURL = BASE_URL;
 export async function request(endpoint, options = {}, method = '') {
   try {
     const response = await axios({ url: endpoint, method, ...options });
+    console.log("🚀 ~ request ~ response:", response.data)
     return response.data;
   } catch (error) {
     const errorMessage = error.response?.data?.message || error.message;
