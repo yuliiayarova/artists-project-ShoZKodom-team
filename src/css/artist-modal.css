@@ -47,11 +47,17 @@
   justify-content: center;
 
   cursor: pointer;
+  transition: opacity 0.3s ease;
 
   .btn-close-icon {
     fill: currentColor;
   }
 }
+
+.modal-btn-close:hover {
+  opacity: 0.6;
+}
+
 .artist-title {
   font-size: 20px;
   text-align: center;
@@ -258,6 +264,15 @@ dt {
 
 .tracks-table tbody tr:nth-of-type(even) td:last-child {
   border-radius: 0 8px 8px 0;
+}
+
+.play-icon {
+  fill: rgba(255, 255, 255);
+  transition: opacity 0.3s ease;
+}
+
+.play-icon:hover {
+  opacity: 0.6;
 }
 
 /* #endregion */
