@@ -15,17 +15,14 @@
 
 .artists-section-title {
   color: #fff;
-  font-weight: 700;
   font-size: 44px;
   line-height: 120%;
-  letter-spacing: -0.01em;
 }
 
 .artists-section-label {
   color: #fff;
   font-weight: 600;
   font-size: 16px;
-  line-height: 150%;
 }
 
 .artists-layout {
@@ -80,16 +77,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 10px;
+  padding: 4px 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   font-weight: 600;
   font-size: 16px;
-  line-height: 150%;
-
   background: #060307;
 }
-
 .artist-card-name {
   margin-bottom: 8px;
   font-weight: 700;
@@ -100,15 +94,24 @@
 
 .artist-card-desc {
   margin-bottom: 24px;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 150%;
 }
 
 .artist-card-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  width: 125px;
+  height: 27px;
+  background-color: #060307;
   font-weight: 500;
-  font-size: 18px;
-  line-height: 150%;
+  border: none;
+  padding: 0;
+  transition: ease-in 200ms;
+}
+
+.artist-card-link:hover {
+  opacity: 0.6;
 }
 
 .tui-pagination {
@@ -140,7 +143,6 @@
 
 @media only screen and (min-width: 1440px) {
   .artists-section-title {
-    font-weight: 700;
     font-size: 60px;
     line-height: 120%;
   }
