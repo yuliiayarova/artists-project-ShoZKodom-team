@@ -1,0 +1,81 @@
+.feedback-swiper {
+  position: relative;
+  @media only screen and (max-width: 767.98px) {
+    .feedback-prev,
+    .feedback-next {
+      display: none;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .feedback-prev {
+      position: absolute;
+      top: 30px;
+      left: 0;
+    }
+    .feedback-next {
+      position: absolute;
+      top: 30px;
+      right: 0;
+    }
+  }
+}
+
+.feedback-card {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.feedback-text,
+.feedback-name {
+  text-align: center;
+}
+
+.feedback-text {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  text-align: center;
+  margin: 0 auto;
+  color: #fff;
+  max-width: 288px;
+}
+
+@media only screen and (min-width: 768px) {
+  .feedback-text {
+    max-width: 518px;
+    font-size: 26x;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .feedback-text {
+    max-width: 768px;
+    font-size: 32px;
+    line-height: 1.3;
+  }
+}
+
+.feedback-name {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.feedback-prev,
+.feedback-next {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+}
+
+.feedback-nav-icon {
+  fill: #fff;
+}
+
+
+ 

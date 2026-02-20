@@ -1,22 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>ArtistsHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700&family=IBM+Plex+Sans:wght@100..700&family=Roboto:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+    <load
+      src="./partials/header.html"
+      icon-path="./img/sprite/sprite.svg#icon-logo-icon"
+    />
 
     <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
+      <load
+        src="./partials/hero.html"
+        icon-path="./img/sprite/sprite.svg#icon-logo-icon"
+      />
+      <load
+        src="./partials/artist.html"
+        icon-path="./img/sprite/sprite.svg#icon-logo-icon"
+      />
+      <load
+        src="./partials/about-us.html"
+        icon-path="./img/sprite/sprite.svg#icon-logo-icon"
+      />
+      <load
+        src="./partials/feedback.html"
+        icon-path="./img/sprite/sprite.svg#icon-logo-icon"
+      />
     </main>
 
-    <load src="./partials/footer.html" />
+    <load
+      src="./partials/footer.html"
+      icon-path="./img/sprite/sprite.svg#icon-logo-icon"
+    />
 
     <script type="module" src="./main.js"></script>
   </body>
