@@ -1,7 +1,8 @@
 /* Styles for Mobile devices */
 .container {
-  min-width: 335px;
-  max-width: 375px;
+  max-width: 320px; /* в видеоинструкции был акцент на мобильной версии. + так четко работает.*/
+  /* min-width: 335px;
+  max-width: 375px; */
   margin: 0 auto;
   padding: 0 16px;
 }
