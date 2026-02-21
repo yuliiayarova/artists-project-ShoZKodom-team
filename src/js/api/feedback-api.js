@@ -1,6 +1,6 @@
 import { http } from './http';
 
-export function fetchFeetbacks(page, limit) {
+export function fetchFeetbacks(page = 1, limit = 10) {
   return http.get('/feedbacks', {
     params: {
       page,

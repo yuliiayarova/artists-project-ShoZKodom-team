@@ -1,23 +1,19 @@
-.feedback-swiper {
+/* #region mobilestyle */
+.feedbacks {
+  padding: 64px 0;
   position: relative;
-  @media only screen and (max-width: 767.98px) {
-    .feedback-prev,
-    .feedback-next {
-      display: none;
-    }
-  }
-  @media only screen and (min-width: 768px) {
-    .feedback-prev {
-      position: absolute;
-      top: 30px;
-      left: 0;
-    }
-    .feedback-next {
-      position: absolute;
-      top: 30px;
-      right: 0;
-    }
-  }
+}
+.feedback-swiper {
+  /* background-color: rgba(255, 255, 255, 0.5); */
+}
+
+.feedback-swiper-wrapper {
+}
+.swiper-wrapper {
+  margin-bottom: 32px;
+}
+
+.feedback-swiper-slide {
 }
 
 .feedback-card {
@@ -26,9 +22,16 @@
   gap: 32px;
 }
 
-.feedback-text,
-.feedback-name {
-  text-align: center;
+.feedback-stars-rating {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  min-width: 116px;
+  min-height: 19px;
+}
+
+.feedback-stars-item {
+  display: block;
 }
 
 .feedback-text {
@@ -39,43 +42,94 @@
   letter-spacing: -0.01em;
   text-align: center;
   margin: 0 auto;
-  color: #fff;
   max-width: 288px;
 }
 
-@media only screen and (min-width: 768px) {
+.feedback-name {
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.feedback-swiper-pagination {
+  margin-top: 16px;
+  /* background-color: rgb(15, 26, 26); */
+}
+.swiper-pagination {
+}
+.swiper-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+.swiper-pagination-bullet:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Стили только для активной точки */
+.swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #fff;
+}
+
+.feedback-btn-next,
+.feedback-btn-prev {
+  display: none;
+}
+
+/* #endregion */
+
+@media (min-width: 768px) {
   .feedback-text {
     max-width: 518px;
     font-size: 26x;
   }
+
+  .feedback-btn-next,
+  .feedback-btn-prev {
+    display: block;
+    position: absolute;
+    top: 70px;
+    /* background-color: #060307; */
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    padding: 12px;
+    width: 48px;
+    height: 48px;
+    outline: none;
+    z-index: 10;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #1e1c1f;
+    }
+    &:active {
+      background-color: #1e1c1f;
+      border: none;
+    }
+  }
+  .feedback-btn-icon {
+    fill: #fff;
+  }
+
+  .feedback-btn-next {
+    right: 0;
+  }
+  .feedback-btn-prev {
+    left: 0;
+  }
 }
 
-@media only screen and (min-width: 1440px) {
+@media (min-width: 1440px) {
   .feedback-text {
     max-width: 768px;
     font-size: 32px;
     line-height: 1.3;
   }
+  .feedback-btn-next,
+  .feedback-btn-prev {
+    top: 50px;
+  }
 }
-
-.feedback-name {
-  font-weight: 600;
-  font-size: 18px;
-}
-
-.feedback-prev,
-.feedback-next {
-  background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
-  padding: 12px;
-  width: 48px;
-  height: 48px;
-}
-
-.feedback-nav-icon {
-  fill: #fff;
-}
-
-
- 
