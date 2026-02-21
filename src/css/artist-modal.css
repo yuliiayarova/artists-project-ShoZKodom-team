@@ -1,0 +1,290 @@
+.artist-modal {
+  padding: 0;
+  border: none;
+  border-radius: 16px;
+}
+
+.artist-modal::backdrop {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.artist-modal-content {
+  padding: 52px 8px;
+  max-width: 288px;
+
+  background-color: #060307;
+  color: #fff;
+
+  position: relative;
+}
+
+@media only screen and (min-width: 768px) {
+  .artist-modal-content {
+    padding: 64px 24px;
+    max-width: 702px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .artist-modal-content {
+    padding: 64px;
+    max-width: 1312px;
+  }
+}
+
+.modal-btn-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 0;
+
+  border: none;
+  background-color: transparent;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  .btn-close-icon {
+    fill: currentColor;
+  }
+}
+
+.modal-btn-close:hover {
+  opacity: 0.6;
+}
+
+.artist-title {
+  font-size: 20px;
+  text-align: center;
+
+  margin-bottom: 48px;
+}
+
+@media only screen and (min-width: 768px) {
+  .artist-title {
+    font-size: 32px;
+  }
+}
+
+.artist-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+  .artist-wrapper {
+    margin-bottom: 48px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .artist-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
+  .artist-ill {
+    min-width: 654px;
+  }
+}
+
+.artist-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+  .artist-info-wrapper {
+    gap: 24px;
+  }
+}
+
+.meta {
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  gap: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+  .meta {
+    grid-template-columns: 146px 1fr;
+    gap: 24px;
+  }
+}
+
+dt {
+  font-weight: 600;
+}
+
+.biography-caption {
+  font-weight: 600;
+}
+.biography-descr {
+  max-height: 297px;
+  overflow-y: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .biography-descr {
+    max-height: 108px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .biography-descr {
+    max-height: 135px;
+  }
+}
+
+.genres-list {
+  font-size: 16px;
+}
+
+.genre-item {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 4px 10px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0);
+}
+
+/* #region Albums */
+
+.albums-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  font-family: Epilogue;
+
+  margin-bottom: 16px;
+}
+
+.albums-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media only screen and (min-width: 768px) {
+  .albums-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .albums-list {
+    justify-content: flex-start;
+  }
+}
+
+.album {
+  border-radius: 16px;
+  padding: 14px 11px;
+  width: 272px;
+  height: auto;
+
+  background: #1e1c1f;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
+  .album {
+    width: 311px;
+  }
+}
+
+.album-title {
+  font-weight: 600;
+  font-size: 16px;
+
+  margin-bottom: 12px;
+}
+
+.tracks-table {
+  border-collapse: collapse;
+  min-width: 250px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
+  .tracks-table {
+    min-width: 289px;
+  }
+}
+
+.tracks-table thead th {
+  font-weight: 600;
+  font-size: 8px;
+  text-align: left;
+
+  padding: 4px;
+  padding-left: 12px;
+
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tracks-table thead th:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.tracks-table thead th:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.tracks-table tbody td {
+  font-size: 12px;
+  text-align: left;
+
+  padding: 7px 12px;
+}
+
+.tracks-table tbody tr:nth-of-type(even) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tracks-table tbody tr:nth-of-type(even) td:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.tracks-table tbody tr:nth-of-type(even) td:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.play-icon {
+  fill: rgba(255, 255, 255);
+  transition: opacity 0.3s ease;
+}
+
+.play-icon:hover {
+  opacity: 0.6;
+}
+
+/* #endregion */
+
+/* #region reset */
+dd {
+  margin: 0;
+}
+/* #endregion */
+
+/* ! Цей стиль для скролу треба буде видалити і написати через JS заборону скролу сторінки під модальним вікном (GPT каже, що цей варіант через CSS підтримується не всіма браузерами) */
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}
