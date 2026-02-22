@@ -16,3 +16,7 @@
     transform: translateX(-50%) translateY(100%) scale(1);
   }
 }
+
+.js-section-loader .line-scale > div {
+  background-color: #764191;
+}
