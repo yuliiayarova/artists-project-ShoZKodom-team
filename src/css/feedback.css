@@ -10,7 +10,7 @@
 .feedback-swiper-wrapper {
 }
 .swiper-wrapper {
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
 .feedback-swiper-slide {
@@ -51,31 +51,30 @@
   margin-bottom: 48px;
 }
 
+.feedback-btn-next,
+.feedback-btn-prev {
+  display: none;
+}
 .feedback-swiper-pagination {
-  margin-top: 16px;
   /* background-color: rgb(15, 26, 26); */
 }
 .swiper-pagination {
 }
+
 .swiper-pagination .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
   background-color: rgba(255, 255, 255, 0.2);
   opacity: 1;
   transition: all 0.3s ease;
+  cursor: pointer;
+  pointer-events: auto;
 }
 .swiper-pagination-bullet:hover {
   background-color: rgba(255, 255, 255, 0.6);
 }
-
-/* Стили только для активной точки */
 .swiper-pagination .swiper-pagination-bullet-active {
   background-color: #fff;
-}
-
-.feedback-btn-next,
-.feedback-btn-prev {
-  display: none;
 }
 
 /* #endregion */
