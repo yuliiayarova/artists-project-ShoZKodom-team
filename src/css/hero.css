@@ -85,15 +85,6 @@
   transition: ease-in 200ms;
 }
 
-.bg-image {
-  width: 288px;
-  height: 385px;
-  margin: 0 auto;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: contain;
-  background-image: url('../images/hero/bg-image-mobile.png');
-}
 
 .arrow {
   width: 24px;
@@ -103,12 +94,6 @@
   display: block;
 }
 
-/* Mobile Retina 2x */
-@media (min-resolution: 2dppx) {
-  .bg-image {
-    background-image: url('../images/hero/bg-image-mobile@2x.png');
-  }
-}
 
 /* Tablet */
 @media screen and (min-width: 768px) {
@@ -145,21 +130,8 @@
     height: 47px;
   }
 
-  .bg-image {
-    width: 100%;
-    max-width: 704px;
-    height: 632px;
-    margin: 0 auto;
-    background-image: url('../images/hero/bg-image-tablet.png');
-  }
 }
 
-/* Tablet Retina 2x */
-@media screen and (min-width: 768px) and (min-resolution: 2dppx) {
-  .bg-image {
-    background-image: url('../images/hero/bg-image-tablet@2x.png');
-  }
-}
 
 /* Desktop */
 @media screen and (min-width: 1440px) {
@@ -192,17 +164,97 @@
     width: 206px;
   }
 
-  .bg-image {
-    width: 641px;
-    height: 900px;
-
-    background-image: url('../images/hero/bg-image-desktop.png');
-  }
+  
 }
 
-/* Desktop Retina 2x */
-@media screen and (min-width: 1440px) and (min-resolution: 2dppx) {
-  .bg-image {
-    background-image: url('../images/hero/bg-image-desktop@2x.png');
+
+.hero-photo-box {
+  height: 385px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.hero-column-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.hero-image-up {
+  border-radius: 16px;
+  margin-bottom: 16px;
+  width: 160px;
+  height: 170px;
+  object-fit: cover;
+  transform: translateY(-70px);
+  animation-duration: 25s;
+  animation-iteration-count: infinite;
+  animation-name: hero-images-move-down;
+  animation-timing-function: linear;
+}
+
+.hero-column-up:hover .hero-image-up,
+.hero-column-down:hover .hero-image-down {
+  animation-play-state: paused;
+}
+
+.hero-image-down {
+  margin-bottom: 16px;
+  border-radius: 16px;
+  width: 160px;
+  height: 170px;
+  object-fit: cover;
+  transform: translateY(0px);
+  animation-duration: 28s;
+  animation-iteration-count: infinite;
+  animation-name: hero-images-move-up;
+  animation-timing-function: linear;
+}
+
+.hero-column-down {
+  display: flex;
+  flex-direction: column;
+}
+
+
+@media screen and (min-width: 768px) {
+
+  .hero-photo-box {
+    height: 632px;
+  }
+
+  .hero-image-down {
+    width: 342px;
+    height: 340px;
+  }
+
+  .hero-image-up {
+    width: 342px;
+    height: 340px;
+  }
+
+}
+
+@media screen and (min-width: 1440px) {
+  
+  .hero-photo-box {
+    height: 900px;
+    width: 641px;
+  }
+
+  .hero-image-down {
+    width: 311px;
+  }
+
+  .hero-image-up {
+    width: 311px;
   }
 }
