@@ -11,3 +11,5 @@ import './js/artist/render-artist';
 import './js/close-open.js/mobile-menu';
 import './js/components/modal-artist/modal';
 import './js/utills/scrolling';
+
+import 'loaders.css/loaders.min.css';

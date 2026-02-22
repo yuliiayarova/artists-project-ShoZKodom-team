@@ -50,5 +50,8 @@
     <symbol id="icon-menu-alt-right" viewBox="0 0 32 32">
       <path d="M5.333 8h21.333v2.667H5.333zm5.334 6.667h16v2.667h-16zm6.666 6.666h9.333V24h-9.333z"/>
     </symbol>
+    <symbol id="icon-hero-arrow" viewBox="0 0 24 24">
+  <path d="M5.536 21.886a1 1 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A.998.998 0 0 0 5 3v18a1 1 0 0 0 .536.886M7 4.909 17.243 12 7 19.091z"/>
+</symbol>
   </defs>
 </svg>

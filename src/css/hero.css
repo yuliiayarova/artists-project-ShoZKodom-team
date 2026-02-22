@@ -1,0 +1,260 @@
+.hero {
+  position: relative;
+  background-color: #23132b;
+  margin-top: 80px;
+  padding-top: 64px;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.hero .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(180deg, rgb(6 3 7 / 100%), rgb(35 19 43 / 0%));
+  pointer-events: none;
+  z-index: 10;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 106px;
+  background: linear-gradient(0deg, rgb(6 3 7 / 100%), rgb(35 19 43 / 0%));
+  pointer-events: none;
+  z-index: 10;
+}
+
+.hero-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 288px;
+  height: auto;
+  margin-bottom: 64px;
+}
+
+.hero-title {
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  margin-bottom: 24px;
+}
+
+.explore-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 12px;
+  white-space: nowrap;
+  border: none;
+  padding: 0;
+  width: 100%;
+  max-width: 288px;
+  height: 47px;
+  border: none;
+  border-radius: 12px;
+  box-shadow:
+    0 1px 2px 0 rgb(6 3 7 / 5%),
+    inset 0 -2px 1px 0 rgb(0 0 0 / 20%),
+    inset 0 0 0 1px rgb(6 3 7 / 15%),
+    inset 0 2px 1px 0 rgb(255 255 255 / 25%),
+    inset 0 32px 24px 0 rgb(255 255 255 / 5%);
+  background: #764191;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: ease-in 200ms;
+}
+
+
+.arrow {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  flex-shrink: 0;
+  display: block;
+}
+
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .hero {
+    margin-top: 96px;
+
+    padding-top: 32px;
+  }
+
+  .hero::before {
+    height: 125px;
+    background: linear-gradient(180deg, #060307 0%, rgba(6, 3, 7, 0) 50%);
+  }
+
+  .hero-wrapper {
+    max-width: 704px;
+    margin: 0 auto 32px;
+  }
+
+  .hero-title {
+    font-size: 48px;
+    margin-bottom: 24px;
+    width: 600px;
+  }
+
+  .hero-description {
+    font-size: 20px;
+    margin-bottom: 32px;
+    max-width: 624px;
+  }
+
+  .explore-btn {
+    width: 246px;
+    height: 47px;
+  }
+
+}
+
+
+/* Desktop */
+@media screen and (min-width: 1440px) {
+  .hero {
+    margin-top: 96px;
+
+    padding: 0;
+  }
+
+  .hero .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0;
+  }
+
+  .hero-wrapper {
+    max-width: 672px;
+    padding-left: 64px;
+
+    margin: 0;
+  }
+
+  .hero-title {
+    font-size: 84px;
+  }
+
+  .explore-btn {
+    width: 206px;
+  }
+
+  
+}
+
+
+.hero-photo-box {
+  height: 385px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.hero-column-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.hero-image-up {
+  border-radius: 16px;
+  margin-bottom: 16px;
+  width: 160px;
+  height: 170px;
+  object-fit: cover;
+  transform: translateY(-70px);
+  animation-duration: 25s;
+  animation-iteration-count: infinite;
+  animation-name: hero-images-move-down;
+  animation-timing-function: linear;
+}
+
+.hero-column-up:hover .hero-image-up,
+.hero-column-down:hover .hero-image-down {
+  animation-play-state: paused;
+}
+
+.hero-image-down {
+  margin-bottom: 16px;
+  border-radius: 16px;
+  width: 160px;
+  height: 170px;
+  object-fit: cover;
+  transform: translateY(0px);
+  animation-duration: 28s;
+  animation-iteration-count: infinite;
+  animation-name: hero-images-move-up;
+  animation-timing-function: linear;
+}
+
+.hero-column-down {
+  display: flex;
+  flex-direction: column;
+}
+
+
+@media screen and (min-width: 768px) {
+
+  .hero-photo-box {
+    height: 632px;
+  }
+
+  .hero-image-down {
+    width: 342px;
+    height: 340px;
+  }
+
+  .hero-image-up {
+    width: 342px;
+    height: 340px;
+  }
+
+}
+
+@media screen and (min-width: 1440px) {
+  
+  .hero-photo-box {
+    height: 900px;
+    width: 641px;
+  }
+
+  .hero-image-down {
+    width: 311px;
+  }
+
+  .hero-image-up {
+    width: 311px;
+  }
+}
