@@ -29,7 +29,7 @@ function createCardMarkup({
             <p class="artist-card-desc">
              ${strBiographyEN}
             </p>
-            <button class="artist-card-link" type="button">
+            <button class="artist-card-link js-learn-more-btn" type="button" data-artist-id="${_id}">
               Learn More<svg class="icon icon-play" width="20" height="20">
                 <use href="../assets/icons/sprite.svg#icon-play"></use>
               </svg>

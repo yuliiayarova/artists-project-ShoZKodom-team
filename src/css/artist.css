@@ -120,6 +120,11 @@
   opacity: 0.6;
 }
 
+.artist-card-link:focus {
+  outline: none;
+  opacity: 0.2;
+}
+
 .tui-pagination {
   margin-top: 16px;
 }
