@@ -66,6 +66,8 @@ export function renderArtistModalContent(artistData = {}, el) {
         </ul>
       </div>
     </div>
-    </div>`;
+     <section class="albums js-albums"></section>
+     </div>
+    `;
   el.innerHTML = markup;
 }

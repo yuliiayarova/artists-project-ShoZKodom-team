@@ -5,6 +5,7 @@ import {
   lockBodyScroll,
   unlockBodyScroll,
 } from '../../utills/scrolling';
+import { renderAlbumsSection } from '../modal-artist-render-02';
 import { renderArtistModalContent } from './modal-artist-renderer';
 
 refs.artistList.addEventListener('click', onArtistListClick);
@@ -25,16 +26,40 @@ export async function onArtistListClick(event) {
     const artistInfo = await fetchArtistsById(artistId);
     renderArtistModalContent(artistInfo, refs.artistModal);
 
+    // Albums section rendering with tracks
+    const albumsContainer = refs.artistModal.querySelector('.js-albums');
+
+    if (artistInfo.tracksList && albumsContainer) {
+      const albumsMap = {};
+      artistInfo.tracksList.forEach(track => {
+        const albumName = track.strAlbum ?? 'Unknown Album';
+        if (!albumsMap[albumName]) albumsMap[albumName] = [];
+        albumsMap[albumName].push(track);
+      });
+
+      const albums = Object.entries(albumsMap).map(([strAlbum, tracks]) => ({
+        strAlbum,
+        tracks,
+      }));
+
+      renderAlbumsSection(albums, albumsContainer);
+    }
+
     refs.artistModal.showModal();
     lockBodyScroll();
 
-    const scrollModal = refs.artistModal.querySelector('.js-modal-scroll');
-    if (scrollModal) initElementScroll(scrollModal);
-
-    const scrollBioDescr = refs.artistModal.querySelector(
-      '.biography-descr-wrapper'
+    const scrollElements = refs.artistModal.querySelectorAll(
+      '.js-modal-scroll, .biography-descr-wrapper, .tracks-scroll'
     );
-    if (scrollBioDescr) initElementScroll(scrollBioDescr);
+
+    scrollElements.forEach(el =>
+      initElementScroll(el, {
+        overflow: {
+          x: 'hidden',
+          y: 'scroll',
+        },
+      })
+    );
 
     const closeBtn = refs.artistModal.querySelector('.js-modal-btn-close');
     if (!closeBtn) return;

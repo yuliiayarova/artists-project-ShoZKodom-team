@@ -312,20 +312,27 @@ dt {
   font-size: 16px;
 
   margin-bottom: 12px;
+
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: help;
 }
 
 /* #endregion */
 
 /* #region Tracks styles */
+.tracks-scroll {
+  max-height: 480px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 8px;
+}
 .tracks-table {
   border-collapse: collapse;
-  min-width: 250px;
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1439px) {
-  .tracks-table {
-    min-width: 289px;
-  }
+  table-layout: fixed;
+  width: 100%;
 }
 
 .tracks-table thead th {
@@ -333,44 +340,65 @@ dt {
   font-size: 8px;
   text-align: left;
 
-  padding: 4px;
-  padding-left: 12px;
-
   background: rgba(255, 255, 255, 0.05);
 }
 
 .tracks-table thead th:first-child {
-  border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
+  padding: 4px 0;
+  padding-left: 12px;
 }
 
 .tracks-table thead th:last-child {
-  border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+  padding-right: 4px;
 }
 
 .tracks-table tbody td {
   font-size: 12px;
-  text-align: left;
+}
 
-  padding: 7px 12px;
+.tracks-table tbody td:first-child {
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+  padding: 7px 0;
+  padding-left: 12px;
+  cursor: help;
+}
+
+.tracks-table tbody td:last-child {
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .tracks-table tbody tr:nth-of-type(even) {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.tracks-table tbody tr:nth-of-type(even) td:first-child {
-  border-radius: 8px 0 0 8px;
+.tracks-table th,
+.tracks-table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.tracks-table tbody tr:nth-of-type(even) td:last-child {
-  border-radius: 0 8px 8px 0;
+.tracks-table th:nth-child(3),
+.tracks-table td:nth-child(3) {
+  width: 35px;
+  text-align: center;
+}
+
+.tracks-table th:nth-child(2),
+.tracks-table td:nth-child(2) {
+  width: 102px;
+  text-align: center;
 }
 
 .play-icon {
   fill: rgba(255, 255, 255);
   transition: opacity 0.3s ease;
+  display: block;
+  margin: 0 auto;
 }
 
 .play-icon:hover {

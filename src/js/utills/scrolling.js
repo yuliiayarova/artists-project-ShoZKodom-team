@@ -21,7 +21,7 @@ export function initBodyScroll(el) {
   return osBody;
 }
 
-export function initElementScroll(el) {
+export function initElementScroll(el, options = {}) {
   if (!el) return null;
 
   if (osElements.has(el)) {
@@ -37,6 +37,7 @@ export function initElementScroll(el) {
     plugins: {
       SizeObserverPlugin: true,
     },
+    ...options,
   });
 
   osElements.set(el, instance);
