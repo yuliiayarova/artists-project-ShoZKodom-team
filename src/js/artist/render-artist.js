@@ -54,10 +54,10 @@ export async function renderArtist(params) {
 
   if (loadMoreBtn) {
   if (artists.length < params.limit) {
-    loadMoreBtn.style.display = 'none'
+    loadMoreBtn.classList.add('is-disabled')
   }
   else {
-    loadMoreBtn.style.display = 'block'
+    loadMoreBtn.classList.remove('is-disabled')
   }
 }
 }
@@ -66,6 +66,8 @@ if (list) renderArtist({ limit: ARTIST_LIMIT, page: DEFAULT_PAGE });
 
 if (loadMoreBtn) {
   loadMoreBtn.addEventListener('click', async () => {
+    if (loadMoreBtn.classList.contains('is-disabled')) return 
+    
     nextPage();
     const params = getPaginationParams();
     await renderArtist(params);
