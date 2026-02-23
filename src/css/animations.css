@@ -21,8 +21,6 @@
   background-color: #764191;
 }
 
-
-
 @keyframes hero-images-move-down {
   0% {
     transform: translateY(-558px);

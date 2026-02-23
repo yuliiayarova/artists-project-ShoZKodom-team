@@ -7,22 +7,28 @@ import {
 } from '../../utills/scrolling';
 import { renderAlbumsSection } from '../modal-artist-render-02';
 import { renderArtistModalContent } from './modal-artist-renderer';
+import { showLoader, hideLoader } from '../../loader/loader';
 
 refs.artistList.addEventListener('click', onArtistListClick);
 refs.artistModal.addEventListener('click', onArtistModalClick);
 refs.artistModal.addEventListener('cancel', onArtistModalCancel);
 
 const ANIMATION_DURATION = 300;
+let isArtistModalLoading = false;
 
 export async function onArtistListClick(event) {
   const btn = event.target.closest('.js-learn-more-btn');
   if (!btn) return;
+  if (isArtistModalLoading) return;
   const { artistId } = btn.dataset;
   if (!artistId) return;
 
   refs.artistModal.classList.remove('closing');
 
   try {
+    isArtistModalLoading = true;
+    showLoader(document.body);
+
     const artistInfo = await fetchArtistsById(artistId);
     renderArtistModalContent(artistInfo, refs.artistModal);
 
@@ -73,6 +79,9 @@ export async function onArtistListClick(event) {
     closeBtn.addEventListener('click', onCloseClick);
   } catch (error) {
     console.error(error.message);
+  } finally {
+    hideLoader(document.body);
+    isArtistModalLoading = false;
   }
 }
 

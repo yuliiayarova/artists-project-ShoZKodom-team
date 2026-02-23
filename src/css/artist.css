@@ -42,6 +42,10 @@
   list-style: none;
 }
 
+.artists-list.js-loader-container {
+  min-height: 160px;
+}
+
 .artist-card {
   background: #060307;
   color: #fff;

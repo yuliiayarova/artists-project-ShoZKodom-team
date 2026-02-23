@@ -2,9 +2,12 @@ import { fetchArtists } from '../api/artists-api';
 import '../../css/artist.css';
 import { ARTIST_LIMIT, DEFAULT_PAGE } from '../config/config';
 import { getPaginationParams, nextPage } from './pagination';
+import { showLoader, hideLoader } from '../loader/loader';
 
 const list = document.querySelector('.js-artists');
 const loadMoreBtn = document.querySelector('.load-more-btn');
+let isLoadingArtists = false;
+let isLoadMoreExhausted = false;
 
 export function loadArtistCard(artist) {
   return artist.map(createCardMarkup).join('');
@@ -41,23 +44,35 @@ function createCardMarkup({
         </li>`;
 }
 
+function toggleLoadMoreState(isDisabled) {
+  if (!loadMoreBtn) return;
+
+  loadMoreBtn.disabled = isDisabled;
+  loadMoreBtn.classList.toggle('is-disabled', isDisabled);
+}
+
 export async function renderArtist(params) {
-  const listArtist = document.querySelector('.js-artists');
-  if (!listArtist) return;
+  if (!list || isLoadingArtists) return;
 
-  const res = await fetchArtists(params);
-  // console.log('response:', res);
+  try {
+    isLoadingArtists = true;
+    list.classList.add('js-loader-container');
+    list.setAttribute('aria-busy', 'true');
+    toggleLoadMoreState(true);
+    showLoader(list);
 
-  const artists = res.artists;
-  // listArtist.innerHTML = loadArtistCard(artists);
-  listArtist.insertAdjacentHTML('beforeend', loadArtistCard(artists));
+    const res = await fetchArtists(params);
+    const artists = res.artists;
 
-  if (loadMoreBtn) {
-    if (artists.length < params.limit) {
-      loadMoreBtn.classList.add('is-disabled');
-    } else {
-      loadMoreBtn.classList.remove('is-disabled');
-    }
+    list.insertAdjacentHTML('beforeend', loadArtistCard(artists));
+    isLoadMoreExhausted = artists.length < params.limit;
+  } catch (error) {
+    console.error(error);
+  } finally {
+    hideLoader(list);
+    list.setAttribute('aria-busy', 'false');
+    toggleLoadMoreState(isLoadMoreExhausted);
+    isLoadingArtists = false;
   }
 }
 
@@ -65,7 +80,8 @@ if (list) renderArtist({ limit: ARTIST_LIMIT, page: DEFAULT_PAGE });
 
 if (loadMoreBtn) {
   loadMoreBtn.addEventListener('click', async () => {
-    if (loadMoreBtn.classList.contains('is-disabled')) return;
+    if (isLoadingArtists || loadMoreBtn.classList.contains('is-disabled'))
+      return;
 
     nextPage();
     const params = getPaginationParams();

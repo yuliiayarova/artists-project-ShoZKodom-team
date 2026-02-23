@@ -1,3 +1,7 @@
+import '../../css/loader.css';
+import '../../css/animations.css';
+import 'loaders.css/loaders.min.css';
+
 const LOADER_CLASS = 'js-section-loader';
 
 function getLoaderMarkup() {
@@ -16,7 +20,6 @@ function getLoaderMarkup() {
 
 export function showLoader(container) {
   if (!container) return;
-
   if (container.querySelector(`.${LOADER_CLASS}`)) return;
 
   container.insertAdjacentHTML('beforeend', getLoaderMarkup());
