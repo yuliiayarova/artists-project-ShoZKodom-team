@@ -134,7 +134,7 @@ body:has(dialog[open]) {
 
 .artist-wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: column;
   gap: 32px;

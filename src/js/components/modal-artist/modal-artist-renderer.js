@@ -1,15 +1,25 @@
+import { createArtistAvatar } from '../../helpers/avatarMarkup';
+import { normalizeYear } from '../../helpers/normalizeYear';
+
 export function renderArtistModalContent(artistData = {}, el) {
   const genresMarkup = Array.isArray(artistData.genres)
     ? artistData.genres
         .map(genre => `<li class="genre-item">${genre}</li>`)
         .join('')
     : '';
+  const formedYear = normalizeYear(artistData.intFormedYear);
+  const diedYear = normalizeYear(artistData.intDiedYear);
+  const avatarMarkup = createArtistAvatar({
+    name: artistData.strArtist,
+    imageUrl: artistData.strArtistThumb,
+    className: 'artist-ill',
+  });
 
   const metaMarkup = `<div class="meta-row">
             <dt>Years active</dt>
             <dd>${
-              artistData.intFormedYear
-                ? `${artistData.intFormedYear}-${artistData.intDiedYear ?? 'present'}`
+              formedYear
+                ? `${formedYear}-${diedYear ?? 'present'}`
                 : 'information missing'
             }</dd>
           </div>
@@ -41,11 +51,7 @@ export function renderArtistModalContent(artistData = {}, el) {
     <h2 class="artist-title" id="artist-title">${artistData.strArtist ?? 'Unknown Artist'}</h2>
     <div class="artist-wrapper">
      <div class="artist-ill-wrapper">
-      <img
-        class="artist-ill"
-        src="${artistData.strArtistThumb ?? ''}"
-        alt="${artistData.strArtist ?? 'Artist image'}"
-      />
+       ${avatarMarkup}
       </div>
 
       <div class="artist-info-wrapper">
