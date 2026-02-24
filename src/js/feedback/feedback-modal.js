@@ -1,7 +1,10 @@
 import Raty from 'raty-js';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 import { sendFeedbacks } from '../api/feedback-api';
 import { STAR_OFF_SVG, STAR_ON_SVG } from '../components/star-rating';
 import { lockBodyScroll, unlockBodyScroll } from '../utills/scrolling';
+import { showLoader, hideLoader } from '../loader/loader';
 
 const dialog = document.querySelector('.feedback-modal');
 const openBtn = document.querySelector('.btn');
@@ -9,6 +12,7 @@ const form = document.querySelector('.feedback-form');
 const STORAGE_KEY = 'feedback-draft';
 const submitBtn = document.querySelector('.feedback-submit');
 let ratyInstance;
+let isSubmitting = false;
 
 //? OPEN/CLOSE MODAL
 
@@ -96,6 +100,7 @@ form.elements.message.addEventListener('blur', validateMessageField);
 
 async function onSubmitForm(event) {
   event.preventDefault();
+  if (isSubmitting) return;
 
   const name = event.target.elements.name.value.trim();
   const message = event.target.elements.message.value.trim();
@@ -103,15 +108,32 @@ async function onSubmitForm(event) {
 
   const feedback = { name, descr: message, rating };
   try {
+    isSubmitting = true;
+    checkFormValidity();
+    showLoader(document.body);
+
     await sendFeedbacks(feedback);
     event.target.reset();
-    checkFormValidity();
     ratyInstance?.score(0);
     clearDraft();
+    iziToast.success({
+      title: 'Success',
+      message: 'Thanks for your feedback!',
+      position: 'topRight',
+    });
     closeModal();
     unlockBodyScroll();
   } catch (error) {
     console.log(error);
+    iziToast.error({
+      title: 'Error',
+      message: 'Failed to send feedback. Please try again.',
+      position: 'topRight',
+    });
+  } finally {
+    isSubmitting = false;
+    hideLoader(document.body);
+    checkFormValidity();
   }
 }
 
@@ -183,7 +205,7 @@ function checkFormValidity() {
   const name = form.elements.name.value.trim();
   const message = form.elements.message.value.trim();
 
-  const isValid = name.length >= 3 && message.length >= 10;
+  const isValid = name.length >= 3 && message.length >= 10 && !isSubmitting;
 
   submitBtn.disabled = !isValid;
 }
