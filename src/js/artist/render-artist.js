@@ -8,6 +8,7 @@ import iziToast from 'izitoast';
 import '../../css/artist.css';
 import '../../css/artists-skeleton.css';
 import 'izitoast/dist/css/iziToast.min.css';
+import { hideLoader, showLoader } from '../loader/loader';
 
 const list = document.querySelector('.js-artists');
 const loadMoreBtn = document.querySelector('.load-more-btn');
@@ -86,11 +87,13 @@ export async function renderArtist(params) {
     if (loadMoreBtn) loadMoreBtn.style.display = '';
 
     if (loadMoreBtn) {
+      
       if (artists.length < params.limit) {
         loadMoreBtn.classList.add('is-disabled');
       } else {
         loadMoreBtn.classList.remove('is-disabled');
       }
+      
     }
   } catch (error) {
     clearTimeout(timeoutId);
@@ -103,7 +106,7 @@ export async function renderArtist(params) {
 
     setTimeout(() => {
       removeArtistsSkeleton(listArtist);
-    }, 2000);
+    }, 8000);
   }
 }
 
@@ -111,6 +114,7 @@ if (list) renderArtist({ limit: ARTIST_LIMIT, page: DEFAULT_PAGE });
 
 if (loadMoreBtn) {
   loadMoreBtn.addEventListener('click', async () => {
+    showLoader(document.body)
     if (isLoadingArtists || loadMoreBtn.classList.contains('is-disabled'))
       return;
     if (loadMoreBtn.classList.contains('is-disabled')) return;
@@ -118,5 +122,6 @@ if (loadMoreBtn) {
     nextPage();
     const params = getPaginationParams();
     await renderArtist(params);
+    hideLoader(document.body)
   });
 }
