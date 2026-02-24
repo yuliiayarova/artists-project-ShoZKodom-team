@@ -2,6 +2,7 @@ import { fetchArtists } from '../api/artists-api';
 import { showArtistsSkeleton, removeArtistsSkeleton } from './artists-skeleton';
 import { ARTIST_LIMIT, DEFAULT_PAGE } from '../config/config';
 import { getPaginationParams, nextPage } from './pagination';
+import { createArtistAvatar } from '../helpers/avatarMarkup';
 import iziToast from 'izitoast';
 import '../../css/artist.css';
 import '../../css/artists-skeleton.css';
@@ -22,20 +23,20 @@ function createCardMarkup({
   strArtistThumb,
   genres,
 }) {
+  const avatar = createArtistAvatar({
+    name: strArtist,
+    imageUrl: strArtistThumb,
+  });
   return `<li class="artist-card" data-id="${_id}">
-          <img
-            class="artist-card-img"
-            src="${strArtistThumb}"
-            alt="${strArtist}"
-            loading="lazy"
-          />
+  ${avatar}
+  </div>
           <div class="artist-card-body">
             <ul class="tag-list">
               ${genres.map(genre => `<li class="tags">${genre}</li>`).join('')}
             </ul>
-            <h3 class="artist-card-name">${strArtist}</h3>
+            <h3 class="artist-card-name">${strArtist ?? 'Unknown Artist'}</h3>
             <p class="artist-card-desc">
-             ${strBiographyEN}
+             ${strBiographyEN ?? 'No biography available'}
             </p>
             <button class="artist-card-link js-learn-more-btn" type="button" data-artist-id="${_id}">
               Learn More<svg class="icon icon-play" width="20" height="20">
