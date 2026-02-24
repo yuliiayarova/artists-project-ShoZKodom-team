@@ -75,7 +75,6 @@
 }
 
 body:has(dialog[open]) {
-  /*проверяю работу своего хедера*/
   overflow: hidden;
 }
 /* #endregion */
@@ -175,18 +174,6 @@ body:has(dialog[open]) {
   height: auto;
 }
 
-.artist-info-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-@media only screen and (min-width: 768px) {
-  .artist-info-wrapper {
-    gap: 24px;
-  }
-}
-
 /* #endregion */
 
 /* #region Meta styles */
@@ -196,12 +183,14 @@ body:has(dialog[open]) {
 
   display: grid;
   gap: 16px;
+  margin-bottom: 16px;
 }
 
 @media only screen and (min-width: 768px) {
   .meta {
     grid-template-columns: 146px 1fr;
     gap: 24px;
+    margin-bottom: 24px;
   }
 }
 
@@ -223,11 +212,13 @@ dt {
 .biography-descr-wrapper {
   max-height: 297px;
   overflow-y: auto;
+  margin-bottom: 16px;
 }
 
 @media only screen and (min-width: 768px) {
   .biography-descr-wrapper {
     max-height: 108px;
+    margin-bottom: 24px;
   }
 }
 
