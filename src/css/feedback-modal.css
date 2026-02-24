@@ -190,18 +190,3 @@
 .feedback-submit:focus {
   outline: none;
 }
-
-.feedback-status {
-  min-height: 24px;
-  text-align: center;
-  font-size: 14px;
-  margin-top: -12px;
-}
-
-.feedback-status-success {
-  color: #fff;
-}
-
-.feedback-status-error {
-  color: #ff7b7b;
-}
