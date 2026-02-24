@@ -42,9 +42,6 @@ const swiper = new Swiper('.swiper', {
 const btnNextFeedback = document.querySelector('.feedback-btn-next');
 const btnPrevFeedback = document.querySelector('.feedback-btn-prev');
 
-// btnNextFeedback.addEventListener('click', () => console.log('type next'));
-// btnPrevFeedback.addEventListener('click', () => console.log('type prev'));
-
 document
   .querySelector('.swiper-pagination')
   .addEventListener('click', function (e) {

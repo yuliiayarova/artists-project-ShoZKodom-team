@@ -28,7 +28,7 @@
 }
 @media only screen and (min-width: 768px) {
   .btn {
-    width: 158px;
+    max-width: 158px;
   }
 }
 @media only screen and (min-width: 1440px) {

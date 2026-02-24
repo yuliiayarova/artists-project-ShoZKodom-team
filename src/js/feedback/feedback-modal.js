@@ -7,7 +7,7 @@ import { lockBodyScroll, unlockBodyScroll } from '../utills/scrolling';
 import { showLoader, hideLoader } from '../loader/loader';
 
 const dialog = document.querySelector('.feedback-modal');
-const openBtn = document.querySelector('.btn');
+const openBtn = document.querySelector('.btn-feedbaks');
 const form = document.querySelector('.feedback-form');
 const STORAGE_KEY = 'feedback-draft';
 const submitBtn = document.querySelector('.feedback-submit');

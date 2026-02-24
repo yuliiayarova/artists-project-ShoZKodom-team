@@ -1,0 +1,15 @@
+.my-toast-izi {
+  color: aliceblue !important;
+}
+.iziToast-close {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.iziToast-close:hover {
+  opacity: 0.7 !important;
+}
+
+.iziToast-message {
+  white-space: pre-line;
+}
