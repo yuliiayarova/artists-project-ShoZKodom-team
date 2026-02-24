@@ -8,7 +8,7 @@ import {
 import { renderAlbumsSection } from './modal-artist-render-albums';
 import { renderArtistModalContent } from './modal-artist-renderer';
 import { showLoader, hideLoader } from '../../loader/loader';
-import '/assets/icons/sprite.svg';
+
 
 refs.artistList.addEventListener('click', onArtistListClick);
 refs.artistModal.addEventListener('click', onArtistModalClick);

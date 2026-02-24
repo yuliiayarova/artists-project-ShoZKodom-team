@@ -3,11 +3,11 @@ import { showArtistsSkeleton, removeArtistsSkeleton } from './artists-skeleton';
 import { ARTIST_LIMIT, DEFAULT_PAGE } from '../config/config';
 import { getPaginationParams, nextPage } from './pagination';
 import { createArtistAvatar } from '../helpers/avatarMarkup';
+import spriteUrl from '@/assets/icons/sprite.svg';
 import iziToast from 'izitoast';
 import '../../css/artist.css';
 import '../../css/artists-skeleton.css';
 import 'izitoast/dist/css/iziToast.min.css';
-import '/assets/icons/sprite.svg';
 
 const list = document.querySelector('.js-artists');
 const loadMoreBtn = document.querySelector('.load-more-btn');
@@ -41,7 +41,7 @@ function createCardMarkup({
             </p>
             <button class="artist-card-link js-learn-more-btn" type="button" data-artist-id="${_id}">
               Learn More<svg class="icon icon-play" width="20" height="20">
-                <use href="/assets/icons/sprite.svg#icon-play"></use>
+                <use href="${spriteUrl}#icon-play"></use>
               </svg>
             </button>
           </div>

@@ -1,6 +1,6 @@
 import { createArtistAvatar } from '../../helpers/avatarMarkup';
 import { normalizeYear } from '../../helpers/normalizeYear';
-import '/assets/icons/sprite.svg';
+import spriteUrl from '@/assets/icons/sprite.svg';
 
 export function renderArtistModalContent(artistData = {}, el) {
   const genresMarkup = Array.isArray(artistData.genres)
@@ -46,7 +46,7 @@ export function renderArtistModalContent(artistData = {}, el) {
       aria-label="Close artist modal"
     >
       <svg class="btn-close-icon" width="32" height="32">
-        <use href="../assets/icons/sprite.svg#icon-x"></use>
+        <use href="${spriteUrl}#icon-x"></use>
       </svg>
     </button>
     <h2 class="artist-title" id="artist-title">${artistData.strArtist ?? 'Unknown Artist'}</h2>
