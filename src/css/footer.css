@@ -1,10 +1,10 @@
-.footer-section {
+.footer {
   padding-top: 48px;
   padding-bottom: 48px;
 }
 
 .footer-wrapper {
-  padding-bottom: 48px;
+  margin-bottom: 48px;
 }
 
 .footer-nav {
@@ -43,7 +43,7 @@
   gap: 32px;
   border-top: 1px solid #383539;
   padding-top: 24px;
-  padding-bottom: 16px;
+  
 }
 
 .footer-socials-list {
@@ -74,13 +74,13 @@
 }
 
 @media only screen and (width >=768px) {
-  .footer-section {
+  .footer {
     padding-top: 80px;
     padding-bottom: 80px;
   }
 
   .footer-wrapper {
-    padding-bottom: 80px;
+    margin-bottom: 80px;
   }
 
   .nav-list {
@@ -92,7 +92,6 @@
     flex-direction: row-reverse;
     justify-content: space-between;
     gap: 24px;
-
     padding-top: 32px;
   }
 
