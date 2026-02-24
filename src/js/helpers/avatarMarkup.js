@@ -24,6 +24,7 @@ export function createArtistAvatar({
       class="artist-card-placeholder"
       style="background: ${gradient}; ${hasImage ? 'display:none;' : 'display:flex;'}"
       aria-label="${safeName}"
+      role="region"
     >
       ${initials}
     </div>`;
