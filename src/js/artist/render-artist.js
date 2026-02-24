@@ -1,11 +1,11 @@
 import { fetchArtists } from '../api/artists-api';
-import '../../css/artist.css';
 import { showArtistsSkeleton, removeArtistsSkeleton } from './artists-skeleton';
-import '../../css/artists-skeleton.css';
-import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
 import { ARTIST_LIMIT, DEFAULT_PAGE } from '../config/config';
 import { getPaginationParams, nextPage } from './pagination';
+import iziToast from 'izitoast';
+import '../../css/artist.css';
+import '../../css/artists-skeleton.css';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const list = document.querySelector('.js-artists');
 const loadMoreBtn = document.querySelector('.load-more-btn');

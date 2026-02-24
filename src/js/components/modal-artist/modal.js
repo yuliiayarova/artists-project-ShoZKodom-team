@@ -5,7 +5,7 @@ import {
   lockBodyScroll,
   unlockBodyScroll,
 } from '../../utills/scrolling';
-import { renderAlbumsSection } from '../modal-artist-render-02';
+import { renderAlbumsSection } from './modal-artist-render-albums';
 import { renderArtistModalContent } from './modal-artist-renderer';
 import { showLoader, hideLoader } from '../../loader/loader';
 
