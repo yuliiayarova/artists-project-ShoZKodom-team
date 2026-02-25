@@ -51,7 +51,8 @@ function createCardMarkup({
 
 export async function renderArtist(params) {
   const listArtist = document.querySelector('.js-artists');
-  if (!listArtist) return;
+  if (!listArtist || isLoadingArtists) return;
+  isLoadingArtists = true;
 
   const isFirstLoad = params.page === DEFAULT_PAGE;
   if (loadMoreBtn) loadMoreBtn.style.display = 'none';
@@ -84,7 +85,10 @@ export async function renderArtist(params) {
       listArtist.insertAdjacentHTML('beforeend', loadArtistCard(artists));
     }
 
-    if (loadMoreBtn) loadMoreBtn.style.display = '';
+    if (loadMoreBtn) {
+      loadMoreBtn.style.display = '';
+      loadMoreBtn.classList.remove('is-hidden');
+    }
 
     if (loadMoreBtn) {
       
@@ -104,9 +108,13 @@ export async function renderArtist(params) {
       position: 'topRight',
     });
 
-    setTimeout(() => {
-      removeArtistsSkeleton(listArtist);
-    }, 8000);
+    removeArtistsSkeleton(listArtist);
+    if (loadMoreBtn) {
+      loadMoreBtn.style.display = '';
+      loadMoreBtn.classList.remove('is-hidden');
+    }
+  } finally {
+    isLoadingArtists = false;
   }
 }
 
@@ -114,14 +122,15 @@ if (list) renderArtist({ limit: ARTIST_LIMIT, page: DEFAULT_PAGE });
 
 if (loadMoreBtn) {
   loadMoreBtn.addEventListener('click', async () => {
-    showLoader(document.body)
-    if (isLoadingArtists || loadMoreBtn.classList.contains('is-disabled'))
-      return;
-    if (loadMoreBtn.classList.contains('is-disabled')) return;
+    if (isLoadingArtists || loadMoreBtn.classList.contains('is-disabled')) return;
 
     nextPage();
     const params = getPaginationParams();
-    await renderArtist(params);
-    hideLoader(document.body)
+    showLoader(document.body);
+    try {
+      await renderArtist(params);
+    } finally {
+      hideLoader(document.body);
+    }
   });
 }
