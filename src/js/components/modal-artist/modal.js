@@ -51,6 +51,11 @@ export async function onArtistListClick(event) {
       renderAlbumsSection(albums, albumsContainer);
     }
 
+    refs.artistModal.setAttribute(
+      'aria-label',
+      artistInfo.strArtist ?? 'Unknown Artist'
+    );
+
     refs.artistModal.showModal();
     lockBodyScroll();
 
