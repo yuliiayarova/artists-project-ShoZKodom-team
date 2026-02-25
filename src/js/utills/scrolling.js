@@ -8,6 +8,10 @@ export function initBodyScroll(el) {
   if (!el) return null;
 
   osBody = OverlayScrollbars(el, {
+    overflow: {
+      x: 'hidden',
+      y: 'scroll',
+    },
     scrollbars: {
       autoHide: 'scroll',
       autoHideDelay: 300,
@@ -61,4 +65,3 @@ export function unlockBodyScroll() {
 document.addEventListener('DOMContentLoaded', () => {
   initBodyScroll(document.body);
 });
-
