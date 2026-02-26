@@ -9,7 +9,6 @@
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 284px;
-  padding-top: 8px;
   background-color: #060307;
   opacity: 0;
   transition:
@@ -31,9 +30,11 @@
   opacity: 1;
 }
 .logo {
+  margin-top: 8px;
   fill: #fff;
 }
 .mobile-top-line {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -42,10 +43,10 @@
 }
 
 .menu-close-btn {
+  position: absolute;
   background-color: transparent;
   width: 24px;
   height: 24px;
-  position: absolute;
   top: 24px;
   right: 24px;
 
@@ -75,6 +76,6 @@
 }
 
 .menu-link:hover,
-.menu-link-link:focus {
+.menu-link:focus {
   color: #764191;
 }
