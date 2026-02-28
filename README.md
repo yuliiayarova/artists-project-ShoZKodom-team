@@ -70,7 +70,7 @@ ArtistsHub helps users discover musical artists from around the world. It featur
 | Name | Role | Main Responsibilities |
 |------|------|----------------------|
 | **Ihor Vzhos** | Team Lead | Project deployment, code review, feedback section + sprite + project setup + API requests handling |
-| **Yuliia Yarova** | Scrum Master | Modal window + modal card rendering + scroll |
+| **Yuliia Yarova** | Scrum Master | Modal window + modal card rendering + scroll + generating placeholders |
 | **Anastasiia Zahliada** | Developer | About Us section + star rating implementation for reviews + skeleton |
 | **Artem Bahno** | Developer | Header section + Swiper implementation + iziToast |
 | **Tasia Shtyk** | Developer | Footer section + pagination function for artists block |
